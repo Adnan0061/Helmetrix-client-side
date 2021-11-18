@@ -31,4 +31,5 @@ This project is created as a practice project with MERN for a niche site [Live L
 * Admin has extra option to see all the orders and delete or update them
 * An Admin can also make another admin
 * An Admin can add new products
+* A demo admin is created with email: admin@admin.com, pass:123456
 

@@ -9,7 +9,7 @@ import Footer from '../Shared/Footer/Footer';
 
 const Login = () => {
     const [ loginData, setLoginData ] = useState({})
-    const { user, LoginUser, authError } = useAuth();
+    const { user, LoginUser, authError, setAuthError } = useAuth();
 
     const history = useHistory();
     const location = useLocation();
@@ -27,8 +27,11 @@ const Login = () => {
         e.preventDefault()
         LoginUser(loginData.email, loginData.password)
         .then((result) => {
-            alert('Login Successful')
+            // alert('Login Successful')
             history.push(url)
+        })
+        .catch((error) => {
+            setAuthError(error.message);
         })
     }
     console.log(loginData)
