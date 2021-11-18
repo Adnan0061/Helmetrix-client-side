@@ -3,9 +3,8 @@
 This project is created as a practice project with MERN for a niche site [Live Link](https://helmetrix.netlify.app).
 
 
-Tools used in this project are
 
-## For front-end bellow tools are user
+## For front-end described bellow tools are used
 
 * React.js
 * Material UI
@@ -21,6 +20,7 @@ Tools used in this project are
 * Express.js
 * Mongo DB for Database
 * Heroku for live server
+* [Server git link](https://github.com/programming-hero-web-course-4/niche-website-server-side-Adnan0061)
 
 ## Some features of the website
 
