@@ -40,7 +40,7 @@ const Header = () => {
           <Toolbar>
             <Typography variant="h6" component="div" color='inherit' sx={{ flexGrow: 1, fontSize: '32px', fontWeight: 'bold'}}><Link to='/home' style={{ textDecoration: 'none', color: '#000', textAlign: 'left' }}>Helmetrix</Link></Typography>
 
-            <Link to='/products' style={{ textDecoration: 'none' }}><Button sx={{ color: '#000' }}>Helmets</Button></Link>
+            <Link to='/products' style={{ textDecoration: 'none' }}><Button sx={{ color: '#000' }}>Explore Helmets</Button></Link>
 
             {/* <Link to='/register' style={{textDecoration: 'none'}}><Button sx={{color: '#000'}}>Register</Button></Link> */}
 

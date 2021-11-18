@@ -1,6 +1,6 @@
 # This is a Helmet selling company website named - HELMETRIX
 
-This project is created with  with [Create React App](https://github.com/facebook/create-react-app).
+This project is created as a practice project with MERN for a niche site [Live Link](https://helmetrix.netlify.app).
 
 
 Tools used in this project are
