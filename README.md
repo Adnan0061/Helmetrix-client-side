@@ -20,7 +20,7 @@ This project is created as a practice project with MERN for a niche site [Live L
 * Express.js
 * Mongo DB for Database
 * Heroku for live server
-* [Server git link](https://github.com/programming-hero-web-course-4/niche-website-server-side-Adnan0061)
+* [Server git link](https://github.com/Adnan0061/Helmetrix-server-side)
 
 ## Some features of the website
 
