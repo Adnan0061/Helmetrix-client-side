@@ -6,10 +6,11 @@ import useAuth from '../../hooks/useAuth';
 import { useHistory, useLocation } from 'react-router';
 import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
+import { Google } from '@mui/icons-material';
 
 const Login = () => {
     const [ loginData, setLoginData ] = useState({})
-    const { user, LoginUser, authError, setAuthError } = useAuth();
+    const { user, LoginUser, authError, setAuthError, googleSignIn } = useAuth();
 
     const history = useHistory();
     const location = useLocation();
@@ -70,6 +71,7 @@ const Login = () => {
                         <Button type='submit' sx={{ width: '75%', fontWeight: 400, backgroundColor: '#5FC7C7' }} variant="contained">Login</Button>
                         <NavLink to="/register"><Button variant="text">Don't have an account?? Register</Button></NavLink><br/>
                     </form>
+                    <Button onClick={()=>googleSignIn(history, url)} variant="contained" startIcon={<Google sx={{backgroundColor: '#fff', color:'#1565C0', p: 1, m:-1.5, mr:.5, borderRadius: 1}} />}>Sign In with google</Button>
                     {user?.email && <Alert severity="success">Account successfully registered</Alert>}
                     {authError && <Alert severity="error">{authError}</Alert>}
                 </Grid>

@@ -1,20 +1,19 @@
-// import { Container, Grid, Typography, Button, CircularProgress, Alert } from '@mui/material';
-// import React, { useState } from 'react';
-// import TextField from '@mui/material/TextField';
-// // import login from '../../../images/login.png'
-// import { NavLink } from 'react-router-dom';
-// import useAuth from '../../../hooks/useAuth';
-
 import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Footer from "../Shared/Footer/Footer";
 import Header from "../Shared/Header/Header";
+import { useHistory, useLocation } from 'react-router';
+import { Google } from "@mui/icons-material";
 
 const Register = () => {
-    const { registerUser, isLoading, authError } = useAuth();
+    const { registerUser, isLoading, authError, googleSignIn } = useAuth();
 
+
+    const history = useHistory();
+    const location = useLocation();
+    const url = location?.state?.from || '/';
 
     const [ loginData, setLoginData ] = useState({})
     const handleOnChange = (e) => {
@@ -94,6 +93,7 @@ const Register = () => {
                         <Button type='submit' sx={{ width: '75%', fontWeight: 400, backgroundColor: '#5FC7C7' }} variant="contained">Register</Button>
                         <NavLink to="/login"><Button variant="text">Already have an account?? Login</Button></NavLink><br/>
                     </form>
+                    <Button onClick={()=>googleSignIn(history, url)} variant="contained" startIcon={<Google sx={{backgroundColor: '#fff', color:'#1565C0', p: 1, m:-1.5, mr:.5, borderRadius: 1}} />}>Sign In with google</Button>
                     {/* {user?.email && <Alert severity="success">Account successfully registered</Alert>} */}
                     {authError && <Alert severity="error">{authError}</Alert>}
                 </Grid>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import InitializeAuthentication from "../Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut } from "firebase/auth";
-
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 
 InitializeAuthentication()
 
@@ -11,6 +11,8 @@ const useFirebase = () => {
     const [ authError, setAuthError ] = useState('')
 
     const auth = getAuth();
+
+    const googleProvider = new GoogleAuthProvider();
     
     useEffect(() => {
         // setIsLoading(true)
@@ -70,6 +72,18 @@ const useFirebase = () => {
             // })
     }
 
+
+    const googleSignIn = (history, url) => {
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                setUser(result.user)
+                saveUser(result.user.email, result.user.displayName, 'POST')
+                history.push(url)
+            }).catch((error) => {
+                
+            });
+        }
+
     const saveUser = ( email, displayName, method ) => {
         const user = { email, displayName };
         fetch('https://protected-wildwood-26801.herokuapp.com/users', {
@@ -100,6 +114,7 @@ const useFirebase = () => {
         authError,
         setAuthError,
         registerUser,
+        googleSignIn,
         LoginUser,
         logOutUser,
     }
